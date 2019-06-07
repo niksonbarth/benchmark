@@ -2,8 +2,6 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"math/rand"
-	"time"
 )
 func fib(n int) int {
 	if n <= 1 {
