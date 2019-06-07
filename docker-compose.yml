@@ -1,0 +1,33 @@
+version: '3.7'
+
+services: 
+  phoenix:
+    build: ./phoenix-bench/.
+    links: 
+      - postgres
+    depends_on:
+      - postgres
+    ports: 
+      - 8000:8000 
+  
+  python:
+    build: ./python-bench/.
+    ports: 
+      - 8001:8000 
+  
+  golang:
+    build: ./golang-bench/.
+    ports: 
+      - 8002:8000 
+
+  postgres:
+    container_name: postgres
+    image: postgres:alpine
+    expose:
+      - 5432
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: teste
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin

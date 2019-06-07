@@ -1,0 +1,56 @@
+echo "GET http://:8000/bench" | vegeta attack -name=100qps -timeout=12s -rate=100/1s -duration=60s > results.100qps.bin && \
+echo "GET http://:8000/bench" | vegeta attack -name=250qps -timeout=12s -rate=250/1s -duration=60s > results.250qps.bin && \
+echo "GET http://:8000/bench" | vegeta attack -name=500qps -timeout=12s -rate=500/1s -duration=60s > results.500qps.bin && \
+echo "GET http://:8000/bench" | vegeta attack -name=750qps -timeout=12s -rate=750/1s -duration=60s > results.750qps.bin && \
+echo "GET http://:8000/bench" | vegeta attack -name=1000qps -timeout=12s -rate=1000/1s -duration=60s > results.1000qps.bin && \
+echo "GET http://:8000/bench" | vegeta attack -name=1250qps -timeout=12s -rate=1250/1s -duration=60s > results.1250qps.bin && \
+echo "GET http://:8000/bench" | vegeta attack -name=1500qps -timeout=12s -rate=1500/1s -duration=60s > results.1500qps.bin && \
+echo "GET http://:8000/bench" | vegeta attack -name=1750qps -timeout=12s -rate=1750/1s -duration=60s > results.1750qps.bin && \
+echo "GET http://:8000/bench" | vegeta attack -name=2000qps -timeout=12s -rate=2000/1s -duration=60s > results.2000qps.bin && \
+vegeta plot --title=Elixir results.100qps.bin \
+results.250qps.bin \
+results.250qps.bin \
+results.500qps.bin \
+results.750qps.bin \
+results.1000qps.bin \
+results.1250qps.bin \
+results.1500qps.bin \
+results.2000qps.bin > elixir.html
+
+echo "GET http://:8001/bench" | vegeta attack -name=100qps -timeout=12s -rate=100/1s -duration=60s > results.100qps.bin && \
+echo "GET http://:8001/bench" | vegeta attack -name=250qps -timeout=12s -rate=250/1s -duration=60s > results.250qps.bin && \
+echo "GET http://:8001/bench" | vegeta attack -name=500qps -timeout=12s -rate=500/1s -duration=60s > results.500qps.bin && \
+echo "GET http://:8001/bench" | vegeta attack -name=750qps -timeout=12s -rate=750/1s -duration=60s > results.750qps.bin && \
+echo "GET http://:8001/bench" | vegeta attack -name=1000qps -timeout=12s -rate=1000/1s -duration=60s > results.1000qps.bin && \
+echo "GET http://:8001/bench" | vegeta attack -name=1250qps -timeout=12s -rate=1250/1s -duration=60s > results.1250qps.bin && \
+echo "GET http://:8001/bench" | vegeta attack -name=1500qps -timeout=12s -rate=1500/1s -duration=60s > results.1500qps.bin && \
+echo "GET http://:8001/bench" | vegeta attack -name=1750qps -timeout=12s -rate=1750/1s -duration=60s > results.1750qps.bin && \
+echo "GET http://:8001/bench" | vegeta attack -name=2000qps -timeout=12s -rate=2000/1s -duration=60s > results.2000qps.bin && \
+vegeta plot --title=Elixir results.100qps.bin \
+results.250qps.bin \
+results.250qps.bin \
+results.500qps.bin \
+results.750qps.bin \
+results.1000qps.bin \
+results.1250qps.bin \
+results.1500qps.bin \
+results.2000qps.bin > python.html
+
+echo "GET http://:8002/bench" | vegeta attack -name=100qps -timeout=12s -rate=100/1s -duration=60s > results.100qps.bin && \
+echo "GET http://:8002/bench" | vegeta attack -name=250qps -timeout=12s -rate=250/1s -duration=60s > results.250qps.bin && \
+echo "GET http://:8002/bench" | vegeta attack -name=500qps -timeout=12s -rate=500/1s -duration=60s > results.500qps.bin && \
+echo "GET http://:8002/bench" | vegeta attack -name=750qps -timeout=12s -rate=750/1s -duration=60s > results.750qps.bin && \
+echo "GET http://:8002/bench" | vegeta attack -name=1000qps -timeout=12s -rate=1000/1s -duration=60s > results.1000qps.bin && \
+echo "GET http://:8002/bench" | vegeta attack -name=1250qps -timeout=12s -rate=1250/1s -duration=60s > results.1250qps.bin && \
+echo "GET http://:8002/bench" | vegeta attack -name=1500qps -timeout=12s -rate=1500/1s -duration=60s > results.1500qps.bin && \
+echo "GET http://:8002/bench" | vegeta attack -name=1750qps -timeout=12s -rate=1750/1s -duration=60s > results.1750qps.bin && \
+echo "GET http://:8002/bench" | vegeta attack -name=2000qps -timeout=12s -rate=2000/1s -duration=60s > results.2000qps.bin && \
+vegeta plot --title=Elixir results.100qps.bin \
+results.250qps.bin \
+results.250qps.bin \
+results.500qps.bin \
+results.750qps.bin \
+results.1000qps.bin \
+results.1250qps.bin \
+results.1500qps.bin \
+results.2000qps.bin > golang.html
