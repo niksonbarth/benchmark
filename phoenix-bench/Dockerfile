@@ -1,4 +1,4 @@
-FROM elixir:alpine AS builder
+FROM elixir AS builder
 
 # The following are build arguments used to change variable parts of the image.
 # The name of your application/release (required)
@@ -23,13 +23,12 @@ ENV SKIP_PHOENIX=${SKIP_PHOENIX} \
 WORKDIR /opt/app
 
 # This step installs all the build tools we'll need
-RUN apk update && \
-  apk upgrade --no-cache && \
-  apk add --no-cache \
+RUN apt-get update && \
+  apt-get upgrade -y && \
+  apt-get install -y\
     nodejs \
     yarn \
-    git \
-    build-base && \
+    git && \
   mix local.rebar --force && \
   mix local.hex --force
 
@@ -47,15 +46,14 @@ RUN \
   rm ${APP_NAME}.tar.gz
 
 # From this line onwards, we're in a new image, which will be the image used in production
-FROM alpine
+FROM debian
 
 # The name of your application/release (required)
 ARG APP_NAME=phoenix_bench
 
-RUN apk update && \
-    apk add --no-cache \
-      bash \
-      openssl-dev
+RUN apt-get update && \
+    apt-get install -y\
+      openssl
 
 ENV REPLACE_OS_VARS=true \
     APP_NAME=${APP_NAME}
