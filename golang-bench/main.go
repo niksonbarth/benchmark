@@ -5,15 +5,20 @@ import (
 	"math/rand"
 	"time"
 )
-
+func fib(n int) int {
+	if n <= 1 {
+		return n
+	}
+	return fib(n - 1) + fib(n - 2)
+}
 func main() {
 	r := gin.Default()
 	r.GET("/bench", func(c *gin.Context) {
 		r := rand.Intn(10)
 		time.Sleep(time.Duration(r) * time.Second)
 		c.JSON(200, gin.H{
-			"message": "ok",
+			"message": fib(15),
 		})
 	})
-	r.Run("0.0.0.0:8000") // listen and serve on 0.0.0.0:8080
+	r.Run("0.0.0.0:8000") // listen and serve on 0.0.0.0:8000
 }
