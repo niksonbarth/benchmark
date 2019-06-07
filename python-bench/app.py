@@ -16,11 +16,11 @@ def fib2(n):
 
 @app.route('/bench')
 async def bench(request):
-    return json({'message': fib(30)})
+    return json({'message': fib(15)})
 
 @app.route('/bench2')
 async def bench2(request):
-    return json({'message': fib2(30)})
+    return json({'message': fib2(15)})
 
 if __name__ == "__main__":
     app.run('0.0.0.0', 8000, workers=8, access_log=True)

@@ -24,7 +24,7 @@ echo "GET http://192.168.1.112:8001/bench2" | vegeta attack -name=250qps -timeou
 echo "GET http://192.168.1.112:8001/bench2" | vegeta attack -name=500qps -timeout=12s -rate=500 -duration=30s > results.500qps.bin && \
 echo "GET http://192.168.1.112:8001/bench2" | vegeta attack -name=750qps -timeout=12s -rate=750 -duration=30s > results.750qps.bin && \
 echo "GET http://192.168.1.112:8001/bench2" | vegeta attack -name=1000qps -timeout=12s -rate=1000 -duration=30s > results.1000qps.bin && \
-vegeta plot --title=Python LRU results.250qps.bin results.500qps.bin results.750qps.bin results.1000qps.bin > python_lru.html && \
+vegeta plot --title=Python-Lru results.250qps.bin results.500qps.bin results.750qps.bin results.1000qps.bin > python_lru.html && \
 cat results.250qps.bin | vegeta report -type='hist[0,2s,4s,6s,8s,10s,12s]' && \
 cat results.500qps.bin | vegeta report -type='hist[0,2s,4s,6s,8s,10s,12s]' && \
 cat results.750qps.bin | vegeta report -type='hist[0,2s,4s,6s,8s,10s,12s]' && \
