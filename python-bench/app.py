@@ -1,7 +1,5 @@
 from sanic import Sanic
 from sanic.response import json
-from asyncio import sleep
-from random import randint
 app = Sanic()
 
 def fib(n):
@@ -11,7 +9,6 @@ def fib(n):
 
 @app.route('/bench')
 async def bench(request):
-    await sleep(randint(1,10))
     return json({'message': fib(30)})
 
 if __name__ == "__main__":

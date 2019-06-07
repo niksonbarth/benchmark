@@ -14,8 +14,6 @@ func fib(n int) int {
 func main() {
 	r := gin.Default()
 	r.GET("/bench", func(c *gin.Context) {
-		r := rand.Intn(10)
-		time.Sleep(time.Duration(r) * time.Second)
 		c.JSON(200, gin.H{
 			"message": fib(15),
 		})
