@@ -9,31 +9,31 @@ services:
       - postgres
     ports: 
       - 8000:8000
-    # ulimits:
-    #   nproc: 65535
-    #   nofile:
-    #     soft: 20000
-    #     hard: 40000
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
   
   python:
     build: ./python-bench/.
     ports: 
       - 8001:8000
-    # ulimits:
-    #   nproc: 65535
-    #   nofile:
-    #     soft: 20000
-    #     hard: 40000
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
   
   golang:
     build: ./golang-bench/.
     ports: 
       - 8002:8000 
-    # ulimits:
-    #   nproc: 65535
-    #   nofile:
-    #     soft: 20000
-    #     hard: 40000
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
 
   postgres:
     container_name: postgres
@@ -46,8 +46,8 @@ services:
       POSTGRES_DB: teste
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
-    # ulimits:
-    #   nproc: 65535
-    #   nofile:
-    #     soft: 20000
-    #     hard: 40000
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
