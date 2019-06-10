@@ -1,0 +1,12 @@
+{
+	"authors": [
+		"leotada"
+	],
+	"copyright": "Copyright © 2019, leotada",
+	"dependencies": {
+		"vibe-d": "0.8.5"
+	},
+	"description": "Benchmark fib using Vibe.d framework",
+	"license": "GPLv3",
+	"name": "dlang-bench"
+}
